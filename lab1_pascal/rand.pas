@@ -3,13 +3,13 @@ program Rand;
 var
     data: array[0..49] of Integer;
 
-procedure randNum();
+procedure randNum(start, stop: Integer);
 var
     i: Integer;
 begin
 
     for i := 0 to 49 do
-        data[i] := random(100);
+        data[i] := random(stop - start) + start;
 end;
 
 procedure sortNum();
@@ -32,7 +32,7 @@ var
     q: Integer;
 
 begin
-    randNum;
+    randNum( 100, 200);
 
     writeln('Before sort');
 
