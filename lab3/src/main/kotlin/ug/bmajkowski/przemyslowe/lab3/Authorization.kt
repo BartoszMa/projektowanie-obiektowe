@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component
 
 @Component
 class Authorization {
-    fun authorize(): Boolean {
-        return true
+    fun authorize(token: String?): Boolean {
+        return token == "sample_token"
     }
 }
