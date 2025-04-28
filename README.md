@@ -53,3 +53,10 @@ Kod: [Folder](https://github.com/BartoszMa/projektowanie-obiektowe/tree/main/lab
 :white_check_mark: 5 wymaganie 5 [Link do commita 3](https://github.com/BartoszMa/projektowanie-obiektowe/commit/46c15d9a644250aab2c7bebe3c760d3895207774)
 
 Kod: [Folder](https://github.com/BartoszMa/projektowanie-obiektowe/tree/main/lab4)
+
+**Zadanie 5** Frontend
+
+:white_check_mark: 5 wymaganie 5 [Link do commita 5](https://github.com/BartoszMa/projektowanie-obiektowe/commit/88819fd4a498f6f7e4bcd3e72853d4045dee63e5)
+
+Kod: [Folder](https://github.com/BartoszMa/projektowanie-obiektowe/tree/main/lab5)
+
