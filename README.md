@@ -60,3 +60,10 @@ Kod: [Folder](https://github.com/BartoszMa/projektowanie-obiektowe/tree/main/lab
 
 Kod: [Folder](https://github.com/BartoszMa/projektowanie-obiektowe/tree/main/lab5)
 
+**Zadanie 6** Zapaszki
+
+:white_check_mark: 3.0 wymaganie 1 [Link do commita 1](https://github.com/BartoszMa/po_lab6/commit/c69bc6361b6ac1d1f3b7094a6445fb017cc85c9c)
+
+:white_check_mark: 5.0 wymaganie 5 [Link do commita 2](https://github.com/BartoszMa/po_lab6/commit/404506ec6eb02d4f7b0f210aebce1efd02092ba6)
+
+Kod: [Folder](https://github.com/BartoszMa/po_lab6)
