@@ -26,7 +26,7 @@ def test_home_page(driver):
     time.sleep(1)
     message = driver.find_element(By.ID, "home-message").text
     assert message == "Hello World"
-
+    assert message != "Goodbye World"
 
 def test_hello_page(driver):
     driver.get(f"{BASE_PATH}/hello.html")
@@ -37,6 +37,7 @@ def test_hello_page(driver):
     time.sleep(1)
     message = driver.find_element(By.ID, "hello-message").text
     assert message == "Hello, Bartosz!"
+    assert message != "Goodbye, Bartosz!"
 
 
 def test_login_success(driver):
@@ -50,6 +51,7 @@ def test_login_success(driver):
     time.sleep(1)
     response = driver.find_element(By.ID, "response").text
     assert '{"status":"success"}' in response
+    assert '{"status":"error"}' not in response
 
 
 def test_login_failure(driver):
@@ -63,6 +65,7 @@ def test_login_failure(driver):
     time.sleep(1)
     response = driver.find_element(By.ID, "response").text
     assert '"status":"error"' in response
+    assert '"status":"success"' not in response
 
 
 def test_login_failure_credentials(driver):
@@ -76,7 +79,7 @@ def test_login_failure_credentials(driver):
     time.sleep(1)
     response = driver.find_element(By.ID, "response").text
     assert '"message":"Invalid credentials"' in response
-
+    assert '"message":"Valid credentials"' not in response
 
 def test_products_page_apple(driver):
     driver.get(f"{BASE_PATH}/products.html")
@@ -86,6 +89,7 @@ def test_products_page_apple(driver):
     products = driver.find_elements(By.TAG_NAME, "li")
     product_names = [p.text for p in products]
     assert "apple" in product_names
+    assert "orange" not in product_names
 
 
 def test_products_page_banana(driver):
@@ -96,7 +100,7 @@ def test_products_page_banana(driver):
     products = driver.find_elements(By.TAG_NAME, "li")
     product_names = [p.text for p in products]
     assert "banana" in product_names
-
+    assert "orange" not in product_names
 
 def test_products_page_cherry(driver):
     driver.get(f"{BASE_PATH}/products.html")
@@ -106,6 +110,7 @@ def test_products_page_cherry(driver):
     products = driver.find_elements(By.TAG_NAME, "li")
     product_names = [p.text for p in products]
     assert "cherry" in product_names
+    assert "orange" not in product_names
 
 
 def test_counter_increment(driver):
@@ -117,6 +122,7 @@ def test_counter_increment(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "counter-result").text
     assert result == "11"
+    assert result != "10"
 
 
 def test_reverse_text(driver):
@@ -127,6 +133,7 @@ def test_reverse_text(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "reverse-result").text
     assert result == "nohtyp"
+    assert result != "kajak"
 
 
 def test_status_check(driver):
@@ -135,6 +142,7 @@ def test_status_check(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "status-result").text
     assert result == "ok"
+    assert result != "not ok"
 
 def test_user_found(driver):
     driver.get(f"{BASE_PATH}/user.html")
@@ -145,6 +153,7 @@ def test_user_found(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "user-result").text
     assert "Alice" in result
+    assert "AliceEE" not in result
 
 def test_user_not_found(driver):
     driver.get(f"{BASE_PATH}/user.html")
@@ -155,12 +164,14 @@ def test_user_not_found(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "user-result").text
     assert "User not found" in result
+    assert "User found" not in result
 
 
 def test_home_page_button_text(driver):
     driver.get(f"{BASE_PATH}/index.html")
     button = driver.find_element(By.TAG_NAME, "button")
     assert button.text == "Load Message"
+    assert button.text != "Unload Message"
 
 def test_hello_page_empty_name(driver):
     driver.get(f"{BASE_PATH}/hello.html")
@@ -171,6 +182,7 @@ def test_hello_page_empty_name(driver):
     time.sleep(1)
     message = driver.find_element(By.ID, "hello-message").text
     assert message == "undefined"
+    assert message != "defined"
 
 def test_login_empty_fields(driver):
     driver.get(f"{BASE_PATH}/login.html")
@@ -178,6 +190,7 @@ def test_login_empty_fields(driver):
     time.sleep(1)
     response = driver.find_element(By.ID, "response").text
     assert '"status":"error"' in response
+    assert '"status":"success"' not in response
 
 def test_counter_increment_zero(driver):
     driver.get(f"{BASE_PATH}/counter.html")
@@ -188,6 +201,7 @@ def test_counter_increment_zero(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "counter-result").text
     assert result == "1"
+    assert result != "0"
 
 def test_reverse_empty_text(driver):
     driver.get(f"{BASE_PATH}/reverse.html")
@@ -197,6 +211,7 @@ def test_reverse_empty_text(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "reverse-result").text
     assert result == 'undefined'
+    assert result != 'defined'
 
 
 def test_reverse_text_kot(driver):
@@ -207,7 +222,7 @@ def test_reverse_text_kot(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "reverse-result").text
     assert result == "tok"
-
+    assert result != "kot"
 
 def test_status_check_text(driver):
     driver.get(f"{BASE_PATH}/status.html")
@@ -215,6 +230,7 @@ def test_status_check_text(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "status-result").text
     assert result == "ok"
+    assert result != "ko"
 
 def test_uppercase_hello(driver):
     driver.get(f"{BASE_PATH}/uppercase.html")
@@ -224,6 +240,7 @@ def test_uppercase_hello(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "uppercase-result").text
     assert result == "HELLO"
+    assert result != "BYE"
 
 def test_uppercase_empty(driver):
     driver.get(f"{BASE_PATH}/uppercase.html")
@@ -233,6 +250,7 @@ def test_uppercase_empty(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "uppercase-result").text
     assert result == "undefined"
+    assert result != "defined"
 
 def test_lowercase_HELLO(driver):
     driver.get(f"{BASE_PATH}/lowercase.html")
@@ -242,6 +260,7 @@ def test_lowercase_HELLO(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "lowercase-result").text
     assert result == "hello"
+    assert result != "bye"
 
 def test_lowercase_empty(driver):
     driver.get(f"{BASE_PATH}/lowercase.html")
@@ -251,6 +270,7 @@ def test_lowercase_empty(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "lowercase-result").text
     assert result == "undefined"
+    assert result != "defined"
 
 def test_length_text(driver):
     driver.get(f"{BASE_PATH}/length.html")
@@ -260,6 +280,7 @@ def test_length_text(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "length-result").text
     assert result == "5"
+    assert result != "4"
 
 def test_length_empty(driver):
     driver.get(f"{BASE_PATH}/length.html")
@@ -269,6 +290,7 @@ def test_length_empty(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "length-result").text
     assert result == "undefined"
+    assert result != "defined"
 
 def test_even_2(driver):
     driver.get(f"{BASE_PATH}/even.html")
@@ -278,6 +300,7 @@ def test_even_2(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "even-result").text
     assert result == "true"
+    assert result != "false"
 
 def test_even_3(driver):
     driver.get(f"{BASE_PATH}/even.html")
@@ -287,6 +310,7 @@ def test_even_3(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "even-result").text
     assert result == "false"
+    assert result != "true"
 
 def test_odd_3(driver):
     driver.get(f"{BASE_PATH}/odd.html")
@@ -296,6 +320,7 @@ def test_odd_3(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "odd-result").text
     assert result == "true"
+    assert result != "false"
 
 def test_odd_2(driver):
     driver.get(f"{BASE_PATH}/odd.html")
@@ -305,6 +330,7 @@ def test_odd_2(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "odd-result").text
     assert result == "false"
+    assert result != "true"
 
 def test_sum_2_3(driver):
     driver.get(f"{BASE_PATH}/sum.html")
@@ -316,6 +342,7 @@ def test_sum_2_3(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "sum-result").text
     assert result == "5"
+    assert result != "4"
 
 def test_sum_negative(driver):
     driver.get(f"{BASE_PATH}/sum.html")
@@ -327,6 +354,7 @@ def test_sum_negative(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "sum-result").text
     assert result == "5"
+    assert result != "4"
 
 def test_multiply_2_3(driver):
     driver.get(f"{BASE_PATH}/multiply.html")
@@ -338,6 +366,7 @@ def test_multiply_2_3(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "multiply-result").text
     assert result == "6"
+    assert result != "4"
 
 def test_multiply_zero(driver):
     driver.get(f"{BASE_PATH}/multiply.html")
@@ -349,6 +378,7 @@ def test_multiply_zero(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "multiply-result").text
     assert result == "0"
+    assert result != "4"
 
 def test_factorial_5(driver):
     driver.get(f"{BASE_PATH}/factorial.html")
@@ -358,6 +388,7 @@ def test_factorial_5(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "factorial-result").text
     assert result == "120"
+    assert result != "4"
 
 def test_factorial_0(driver):
     driver.get(f"{BASE_PATH}/factorial.html")
@@ -367,6 +398,7 @@ def test_factorial_0(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "factorial-result").text
     assert result == "1"
+    assert result != "4"
 
 def test_palindrome_kayak(driver):
     driver.get(f"{BASE_PATH}/palindrome.html")
@@ -376,6 +408,7 @@ def test_palindrome_kayak(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "palindrome-result").text
     assert result == "true"
+    assert result != "false"
 
 def test_palindrome_hello(driver):
     driver.get(f"{BASE_PATH}/palindrome.html")
@@ -385,6 +418,7 @@ def test_palindrome_hello(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "palindrome-result").text
     assert result == "false"
+    assert result != "true"
 
 def test_prime_7(driver):
     driver.get(f"{BASE_PATH}/prime.html")
@@ -394,6 +428,7 @@ def test_prime_7(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "prime-result").text
     assert result == "true"
+    assert result != "false"
 
 def test_prime_4(driver):
     driver.get(f"{BASE_PATH}/prime.html")
@@ -403,6 +438,7 @@ def test_prime_4(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "prime-result").text
     assert result == "false"
+    assert result != "true"
 
 def test_greet_john(driver):
     driver.get(f"{BASE_PATH}/greet.html")
@@ -414,6 +450,7 @@ def test_greet_john(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "greet-result").text
     assert result == "Hello John, you are a great tester!"
+    assert result != "Hello Janie, you are a great tester!"
 
 def test_greet_empty(driver):
     driver.get(f"{BASE_PATH}/greet.html")
@@ -423,6 +460,7 @@ def test_greet_empty(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "greet-result").text
     assert result == "undefined"
+    assert result != "defined"
 
 def test_day_1(driver):
     driver.get(f"{BASE_PATH}/dayofweek.html")
@@ -432,6 +470,7 @@ def test_day_1(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "dayofweek-result").text
     assert result == "Tuesday"
+    assert result != "Monday"
 
 def test_day_6(driver):
     driver.get(f"{BASE_PATH}/dayofweek.html")
@@ -441,6 +480,7 @@ def test_day_6(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "dayofweek-result").text
     assert result == "Sunday"
+    assert result != "Monday"
 
 def test_random_between_0_100(driver):
     driver.get(f"{BASE_PATH}/random.html")
@@ -448,6 +488,7 @@ def test_random_between_0_100(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "random-result").text
     assert 0 <= int(result) <= 100
+    assert int(result) != 101
 
 def test_random_another(driver):
     driver.get(f"{BASE_PATH}/random.html")
@@ -455,6 +496,7 @@ def test_random_another(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "random-result").text
     assert 0 <= int(result) <= 100
+    assert int(result) != 101
 
 def test_now_time_not_empty(driver):
     driver.get(f"{BASE_PATH}/nowtime.html")
@@ -462,6 +504,7 @@ def test_now_time_not_empty(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "nowtime-result").text
     assert result != ""
+    assert result != "None"
 
 def test_now_time_format(driver):
     driver.get(f"{BASE_PATH}/nowtime.html")
@@ -469,6 +512,8 @@ def test_now_time_format(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "nowtime-result").text
     assert ":" in result
+    assert "@" not in result
+
 
 def test_uuid_not_empty(driver):
     driver.get(f"{BASE_PATH}/uuid.html")
@@ -476,6 +521,7 @@ def test_uuid_not_empty(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "uuid-result").text
     assert len(result) > 0
+    assert len(result) != 0
 
 def test_uuid_format(driver):
     driver.get(f"{BASE_PATH}/uuid.html")
@@ -483,6 +529,7 @@ def test_uuid_format(driver):
     time.sleep(1)
     result = driver.find_element(By.ID, "uuid-result").text
     assert "-" in result
+    assert "@" not in result
 
 
 # if __name__ == "__main__":
