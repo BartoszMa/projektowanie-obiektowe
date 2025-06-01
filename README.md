@@ -67,3 +67,31 @@ Kod: [Folder](https://github.com/BartoszMa/projektowanie-obiektowe/tree/main/lab
 :white_check_mark: 5.0 wymaganie 5 [Link do commita 2](https://github.com/BartoszMa/po_lab6/commit/404506ec6eb02d4f7b0f210aebce1efd02092ba6)
 
 Kod: [Folder](https://github.com/BartoszMa/po_lab6)
+
+**Zadanie 7** Antywzorce
+
+:white_check_mark: 3.0 wymaganie 1 [Link do commita 1](https://github.com/BartoszMa/projektowanie-obiektowe/commit/294325227660519dfa2cb4d98a521fba5d37c452)
+
+:x: 3.5 wymaganie 2 
+
+:x: 4.0 wymaganie 3 
+
+:x: 4.5 wymaganie 4
+
+:x: 5.0 wymaganie 5
+
+Kod: [Folder](github.com/BartoszMa/projektowanie-obiektowe/tree/main/lab7/lab7)
+
+**Zadanie 8** Testy
+
+:white_check_mark: 3.0 wymaganie 1 [Link do commita 1](https://github.com/BartoszMa/projektowanie-obiektowe/commit/0143dce10e604029d10bf4ecf2c456062f8ffad5)
+
+:white_check_mark: 3.5 wymaganie 2 [Link do commita 2](https://github.com/BartoszMa/projektowanie-obiektowe/commit/726b25d564c4b1576854cbeded9dd2a94bac2412)
+
+:x: 4.0 wymaganie 3
+
+:x: 4.5 wymaganie 4
+
+:x: 5.0 wymaganie 5
+
+Kod: [Folder](https://github.com/BartoszMa/projektowanie-obiektowe/tree/main/lab8/selenium_python)
