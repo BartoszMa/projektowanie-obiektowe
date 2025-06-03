@@ -95,3 +95,17 @@ Kod: [Folder](github.com/BartoszMa/projektowanie-obiektowe/tree/main/lab7/lab7)
 :x: 5.0 wymaganie 5
 
 Kod: [Folder](https://github.com/BartoszMa/projektowanie-obiektowe/tree/main/lab8/selenium_python)
+
+**Zadanie 9** Mobile first
+
+:white_check_mark: 3.0 wymaganie 1 [Link do commita 1](https://github.com/BartoszMa/projektowanie-obiektowe/commit/a660ddf663e7d28e5eaafc659f70923c01234c68)
+
+:white_check_mark: 3.5 wymaganie 2 [Link do commita 2](https://github.com/BartoszMa/projektowanie-obiektowe/commit/a660ddf663e7d28e5eaafc659f70923c01234c68)
+
+:x: 4.0 wymaganie 3
+
+:x: 4.5 wymaganie 4
+
+:x: 5.0 wymaganie 5
+
+Kod: [Folder](https://github.com/BartoszMa/projektowanie-obiektowe/tree/main/lab9)
